@@ -1,0 +1,9 @@
+<form novalidate [formGroup] ="frmcateg" class="form-inline" (ngSubmit)="saveForm($event)">
+  <div class="form-group col-md-12">
+    <input type="text" name="categoryname" id="categoryname"
+           formControlName="categoryname" class="form-control"
+           [ngClass]="{'is-valid':f.categoryname.valid}" />
+    <div *ngIf="f.categoryname.invalid && f.categoryname.dirty && f.categoryname.errors?.required">category name is required</div>
+  </div>  
+  <button type="submit" [disabled]="!frmcateg.valid" class="btn btn-success btn-lg"></button>
+</form>

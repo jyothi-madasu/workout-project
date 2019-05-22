@@ -1,0 +1,78 @@
+<form class="form-inline" [formGroup]="frmAddWorkout" novalidate >
+
+  <div class="form-group col-md-12">
+
+    <label>Title:</label>
+    <input type="text" name="workTitle" id="name" formControlName="workTitle" class="form-control" [ngClass]="{'is-valid': f.workTitle.valid,'is-invalid':f.workTitle.invalid && f.workTitle.dirty}">
+    <div *ngIf="f.workTitle.invaild && f.workTitle.dirty && f.workTitle.errors?.required" class="invalid-feedback">
+      title  is required
+    </div>
+  </div>
+  <br />
+  <div class="form-group col-md-12">
+
+    <label for="comment">Note:</label>
+    <textarea class="form-control" rows="5" id="comment" ></textarea>
+
+    <div *ngIf="f.workTitle.invaild && f.workTitle.dirty && f.workTitle.errors?.required" class="invalid-feedback">
+      Category Name is required
+    </div>
+  </div>
+
+  <div *ngIf="f.workTitle.invaild && f.workTitle.dirty && f.workTitle.errors?.minLength" class="invalid-feedback">
+    Minimum 3 Characters
+  </div>
+  <br />
+  <div class="form-group col-md-12">
+
+    <label>Calories Burnt Per Min</label>
+    <input type="text" name="workNote" id="workNote" formControlName="workNote" class="form-control" [ngClass]="{'is-valid':f.workNote.valid,'is-invalid':f.workNote.invalid && f.workNote.dirty}">
+    <div *ngIf="f.workNote.invaild && f.workNote.dirty && f.workNote.errors?.required" class="invalid-feedback">
+      WorkoutCategory is required
+    </div>
+
+    <div *ngIf="f. workTitle.invaild && f. workTitle.dirty && f. workTitle.errors?.minLength" class="invalid-feedback">
+      Minimum 3 Characters
+    </div>
+
+
+    <button type="submit" [disabled]="! frmAddWorkout.valid" class="btn btn-danger">+</button>
+
+    <div *ngIf="f. workTitle.invaild && f. workTitle.dirty && f. workTitle.errors?.minLength" class="invalid-feedback">
+      Minimum 3 req
+    </div>
+    <button type="Submit" [disabled]="! frmAddWorkout.valid" class="btn btn-primary">-</button>
+
+    <div *ngIf="f. workTitle.invaild && f. workTitle.dirty && f. workTitle.errors?.minLength" class="invalid-feedback">
+      Minimum 3 req
+    </div>
+  </div>
+  <br />
+  <div class="form-group col-md-12">
+
+
+    <label>Category</label>
+    <select>
+      <option *ngFor="let cat of categories">{{cat.CategoryName}}</option>
+    </select>
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+      category select
+
+    </button>
+
+    <button type="submit" class="btn btn-success">+</button>
+
+    <div *ngIf="f. workTitle.invaild && f. workTitle.dirty && f. workTitle.errors?.minLength" class="invalid-feedback">
+      Minimum 3 req
+
+    </div>
+
+
+  </div>
+  <br />
+  <div class="form-group col-md-12">
+    <button type="submit" [disabled]="! frmAddWorkout.valid" class="btn btn-success">Add Workout</button>
+
+  </div>
+</form>
+

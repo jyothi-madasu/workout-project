@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 
-namespace WebApiTracker
+namespace WebApiUi
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
@@ -14,12 +14,14 @@ namespace WebApiTracker
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
 
+
         protected void Application_BeginRequest()
         {
             if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
             {
                 HttpContext.Current.Response.Flush();
             }
+
         }
     }
 }
